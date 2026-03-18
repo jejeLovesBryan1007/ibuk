@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventBook - About & Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg:        #0d1b2a;
+            --bg2:       #04111f;
+            --bg3:       #071a2e;
+            --accent:    #3da9fc;
+            --accent2:   #7dd3fc;
+            --border:    rgba(61,169,252,0.15);
+            --border2:   rgba(61,169,252,0.3);
+            --text:      rgba(255,255,255,0.87);
+            --muted:     rgba(255,255,255,0.55);
+            --card:      rgba(4,17,31,0.75);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            background: linear-gradient(180deg, #04111f 0%, #071a2e 100%);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #1a82d4, #3da9fc);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(90deg, #7dd3fc, #3da9fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
+        .nav-badge {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent);
+            border: 1px solid var(--border2);
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .back-btn {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border: 1px solid var(--border2);
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+        .back-btn:hover { background: rgba(61,169,252,0.1); }
+
+        /* ── HERO ── */
+        .hero {
+            text-align: center;
+            padding: 80px 24px 60px;
+            background: linear-gradient(180deg, #04111f 0%, #0d1b2a 100%);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(61,169,252,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid var(--border2);
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            animation: fadeUp 0.5s ease both;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #fff 50%, #3da9fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            animation: fadeUp 0.5s 0.1s ease both;
+        }
+
+        .hero p {
+            font-size: 17px;
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 32px;
+            animation: fadeUp 0.5s 0.2s ease both;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            animation: fadeUp 0.5s 0.3s ease both;
+        }
+
+        .hero-meta span {
+            font-size: 13px;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-meta span b { color: var(--accent2); }
+
+        /* ── TOC SIDEBAR LAYOUT ── */
+        .layout {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 24px;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .toc {
+            width: 220px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 80px;
+        }
+
+        .toc-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        .toc a {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--muted);
+            text-decoration: none;
+            padding: 6px 12px;
+            border-left: 2px solid var(--border);
+            margin-bottom: 2px;
+            transition: all 0.2s;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .toc a:hover, .toc a.active {
+            color: var(--accent);
+            border-left-color: var(--accent);
+            background: rgba(61,169,252,0.06);
+        }
+
+        /* ── MAIN CONTENT ── */
+        .content { flex: 1; min-width: 0; }
+
+        .section {
+            margin-bottom: 56px;
+            animation: fadeUp 0.5s ease both;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(61,169,252,0.12);
+            border: 1px solid var(--border2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .section h2 {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── FEATURE CARDS ── */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .feature-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--border2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent2);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-card li {
+            font-size: 13px;
+            color: var(--muted);
+            padding: 4px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .feature-card li::before {
+            content: '›';
+            color: var(--accent);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ── TABLES ── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        thead { background: rgba(61,169,252,0.08); }
+
+        th {
+            text-align: left;
+            padding: 12px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 11px 16px;
+            color: var(--muted);
+            border-bottom: 1px solid rgba(61,169,252,0.06);
+        }
+
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: rgba(61,169,252,0.03); }
+
+        td code, th code {
+            font-family: 'Fira Mono', monospace;
+            font-size: 12px;
+            background: rgba(61,169,252,0.1);
+            color: var(--accent2);
+            padding: 2px 7px;
+            border-radius: 4px;
+        }
+
+        /* ── STEP BOXES ── */
+        .steps { display: flex; flex-direction: column; gap: 12px; }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            transition: border-color 0.2s;
+        }
+
+        .step:hover { border-color: var(--border2); }
+
+        .step-num {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1a82d4, #3da9fc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 800;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .step-body { flex: 1; }
+        .step-body p { font-size: 14px; color: var(--text); margin-bottom: 4px; }
+
+        .credential {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(61,169,252,0.08);
+            border: 1px solid var(--border2);
+            border-radius: 6px;
+            padding: 3px 10px;
+            margin: 2px 4px 2px 0;
+            font-family: 'Fira Mono', monospace;
+            font-size: 12px;
+            color: var(--accent2);
+        }
+
+        .credential .label {
+            font-family: 'Nunito', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── CODE BLOCK ── */
+        .code-block {
+            background: #020c17;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .code-block-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            background: rgba(61,169,252,0.05);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .code-block-header span {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--muted);
+            letter-spacing: 1px;
+        }
+
+        .code-block pre {
+            padding: 16px;
+            font-family: 'Fira Mono', monospace;
+            font-size: 13px;
+            color: var(--accent2);
+            overflow-x: auto;
+            line-height: 1.8;
+        }
+
+        /* ── FLOW DIAGRAM ── */
+        .flow {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .flow-item {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+        }
+
+        .flow-line {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 40px;
+            flex-shrink: 0;
+        }
+
+        .flow-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+            margin-top: 16px;
+            box-shadow: 0 0 8px rgba(61,169,252,0.5);
+        }
+
+        .flow-connector {
+            width: 2px;
+            flex: 1;
+            background: linear-gradient(180deg, var(--accent) 0%, rgba(61,169,252,0.1) 100%);
+            margin: 4px 0;
+        }
+
+        .flow-item:last-child .flow-connector { display: none; }
+
+        .flow-box {
+            flex: 1;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin: 6px 0;
+            font-size: 13px;
+            transition: border-color 0.2s;
+        }
+
+        .flow-box:hover { border-color: var(--border2); }
+
+        .flow-box .page { font-weight: 700; color: var(--accent2); }
+        .flow-box .desc { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+        /* ── NOTES ── */
+        .note {
+            display: flex;
+            gap: 12px;
+            background: rgba(61,169,252,0.05);
+            border: 1px solid var(--border2);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .note-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: linear-gradient(180deg, #04111f 0%, #030d19 100%);
+            border-top: 1px solid var(--border);
+            padding: 32px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer p { font-size: 13px; color: var(--muted); }
+        footer strong { color: var(--accent2); }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .section:nth-child(1) { animation-delay: 0.0s; }
+        .section:nth-child(2) { animation-delay: 0.05s; }
+        .section:nth-child(3) { animation-delay: 0.1s; }
+        .section:nth-child(4) { animation-delay: 0.15s; }
+        .section:nth-child(5) { animation-delay: 0.2s; }
+        .section:nth-child(6) { animation-delay: 0.25s; }
+        .section:nth-child(7) { animation-delay: 0.3s; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .navbar { padding: 0 20px; }
+            .layout { flex-direction: column; padding: 24px 16px; }
+            .toc { width: 100%; position: static; }
+            .feature-grid { grid-template-columns: 1fr; }
+            footer { flex-direction: column; text-align: center; padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <a href="../index.html" class="logo">
+        <div class="logo-icon">📅</div>
+        <span class="logo-text">EventBook</span>
+    </a>
+    <span class="nav-badge">Documentation</span>
+    <a href="../index.html" class="back-btn">← Back to App</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-tag">ITEW 2 · Midterm Project</div>
+    <h1>About EventBook</h1>
+    <p>A web-based event booking system for browsing events, selecting seats, and managing bookings — with a full admin dashboard.</p>
+    <div class="hero-meta">
+        <span>📁 <b>Group 1</b></span>
+        <span>📅 <b>2026</b></span>
+        <span>🛠 <b>Vanilla JS + jQuery</b></span>
+        <span>💾 <b>localStorage</b></span>
+    </div>
+</section>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+    <!-- TOC -->
+    <nav class="toc">
+        <div class="toc-title">On this page</div>
+        <a href="#features">Features</a>
+        <a href="#getting-started">Getting Started</a>
+        <a href="#default-accounts">Default Accounts</a>
+        <a href="#tech-stack">Tech Stack</a>
+        <a href="#pages-flow">Pages & Flow</a>
+        <a href="#structure">Project Structure</a>
+        <a href="#notes">Notes</a>
+        <a href="#group">Group Members</a>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="content">
+
+        <!-- FEATURES -->
+        <section class="section" id="features">
+            <div class="section-header">
+                <div class="section-icon">🚀</div>
+                <h2>Features</h2>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>👤 Customer</h3>
+                    <ul>
+                        <li>Register and log in as a customer</li>
+                        <li>Browse available events on the dashboard</li>
+                        <li>Select seats from an interactive seat map</li>
+                        <li>Checkout with GCash, PayMaya, or Bank Transfer</li>
+                        <li>View booking history and ticket with QR code</li>
+                        <li>Cancel, restore, or delete bookings</li>
+                        <li>Reset forgotten password</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <h3>🔑 Admin</h3>
+                    <ul>
+                        <li>Log in directly — no sign up needed</li>
+                        <li>Register, edit, and delete events</li>
+                        <li>View all customer transactions</li>
+                        <li>Live dashboard stats: events, bookings, revenue</li>
+                        <li>Occupancy rate per event with progress bars</li>
+                        <li>Recent transaction activity feed</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- GETTING STARTED -->
+        <section class="section" id="getting-started">
+            <div class="section-header">
+                <div class="section-icon">🧭</div>
+                <h2>Getting Started</h2>
+            </div>
+
+            <p style="font-size:14px; color:var(--muted); margin-bottom:20px;">
+                No installation or server required. Just open <code style="font-family:'Fira Mono',monospace; font-size:12px; background:rgba(61,169,252,0.1); color:var(--accent2); padding:2px 7px; border-radius:4px;">index.html</code> in Chrome and follow the steps below.
+            </p>
+
+            <!-- CUSTOMER -->
+            <p style="font-size:15px; font-weight:700; color:var(--accent2); margin-bottom:14px;">👤 Accessing the Customer Dashboard</p>
+            <div class="note">
+                <span class="note-icon">⚠️</span>
+                You must <strong style="color:#fff;">sign up first</strong> before you can log in as a customer, even when using the default credentials.
+            </div>
+            <div class="steps" style="margin-bottom:32px;">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-body"><p>Open <code style="font-family:'Fira Mono',monospace;font-size:12px;background:rgba(61,169,252,0.1);color:var(--accent2);padding:2px 7px;border-radius:4px;">index.html</code> and click <strong>Sign Up</strong></p></div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-body">
+                        <p>Fill in the registration form using these credentials:</p>
+                        <div style="margin-top:8px; display:flex; flex-wrap:wrap; gap:6px;">
+                            <span class="credential"><span class="label">Full Name</span> User Example</span>
+                            <span class="credential"><span class="label">Email</span> user@example.com</span>
+                            <span class="credential"><span class="label">Password</span> 12345678</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-body"><p>Click <strong>Register</strong> — you will be redirected to the login page</p></div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-body">
+                        <p>On the login page, enter your credentials and select <strong>Customer</strong> as Account Type</p>
+                        <div style="margin-top:8px; display:flex; flex-wrap:wrap; gap:6px;">
+                            <span class="credential"><span class="label">Email</span> user@example.com</span>
+                            <span class="credential"><span class="label">Password</span> 12345678</span>
+                            <span class="credential"><span class="label">Type</span> Customer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <div class="step-body"><p>Click <strong>Log In</strong> — you will be taken to the Customer Dashboard</p></div>
+                </div>
+            </div>
+
+            <!-- ADMIN -->
+            <p style="font-size:15px; font-weight:700; color:var(--accent2); margin-bottom:14px;">🔑 Accessing the Admin Dashboard</p>
+            <div class="note">
+                <span class="note-icon">ℹ️</span>
+                The admin account is <strong style="color:#fff;">built-in</strong> — no sign up required. Just go straight to login.
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-body"><p>Open <code style="font-family:'Fira Mono',monospace;font-size:12px;background:rgba(61,169,252,0.1);color:var(--accent2);padding:2px 7px;border-radius:4px;">index.html</code> and click <strong>Sign In</strong></p></div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-body">
+                        <p>Enter the admin credentials and select <strong>Admin</strong> as Account Type:</p>
+                        <div style="margin-top:8px; display:flex; flex-wrap:wrap; gap:6px;">
+                            <span class="credential"><span class="label">Email</span> admin@example.com</span>
+                            <span class="credential"><span class="label">Password</span> admin123</span>
+                            <span class="credential"><span class="label">Type</span> Admin</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-body"><p>Click <strong>Log In</strong> — you will be taken to the Admin Dashboard</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEFAULT ACCOUNTS -->
+        <section class="section" id="default-accounts">
+            <div class="section-header">
+                <div class="section-icon">🔐</div>
+                <h2>Default Accounts</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Role</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Sign Up Required?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>👤 Customer</td>
+                        <td><code>user@example.com</code></td>
+                        <td><code>12345678</code></td>
+                        <td>✅ Yes — sign up first</td>
+                    </tr>
+                    <tr>
+                        <td>🔑 Admin</td>
+                        <td><code>admin@example.com</code></td>
+                        <td><code>admin123</code></td>
+                        <td>❌ No — log in directly</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- TECH STACK -->
+        <section class="section" id="tech-stack">
+            <div class="section-header">
+                <div class="section-icon">🛠️</div>
+                <h2>Tech Stack</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Technology</th><th>Usage</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>HTML5</td><td>Page structure and layout</td></tr>
+                    <tr><td>CSS3</td><td>Styling, animations, responsive design</td></tr>
+                    <tr><td>JavaScript (Vanilla)</td><td>Logic, DOM manipulation, interactivity</td></tr>
+                    <tr><td>jQuery 3.7.1</td><td>Simplified DOM and event handling</td></tr>
+                    <tr><td>localStorage</td><td>Data persistence — users, events, bookings</td></tr>
+                    <tr><td>QRCode.js</td><td>QR code generation on ticket page</td></tr>
+                </tbody>
+            </table>
+            <div class="note" style="margin-top:16px;">
+                <span class="note-icon">💡</span>
+                No backend or database required — all data is stored in the browser's <code style="font-family:'Fira Mono',monospace;font-size:12px;background:rgba(61,169,252,0.1);color:var(--accent2);padding:2px 7px;border-radius:4px;">localStorage</code>.
+            </div>
+        </section>
+
+        <!-- PAGES & FLOW -->
+        <section class="section" id="pages-flow">
+            <div class="section-header">
+                <div class="section-icon">📋</div>
+                <h2>Pages & Flow</h2>
+            </div>
+            <div class="flow">
+                <div class="flow-item">
+                    <div class="flow-line"><div class="flow-dot"></div><div class="flow-connector"></div></div>
+                    <div class="flow-box"><div class="page">index.html — Home</div><div class="desc">Landing page with Sign Up and Sign In buttons</div></div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-line"><div class="flow-dot"></div><div class="flow-connector"></div></div>
+                    <div class="flow-box"><div class="page">signup.html → login.html — Authentication</div><div class="desc">Register a new account, then log in with email, password and account type</div></div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-line"><div class="flow-dot"></div><div class="flow-connector"></div></div>
+                    <div class="flow-box"><div class="page">user_dashboard.html — Customer Dashboard</div><div class="desc">Browse all available events as cards; click View Details to continue</div></div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-line"><div class="flow-dot"></div><div class="flow-connector"></div></div>
+                    <div class="flow-box"><div class="page">event_details.html — Seat Selection</div><div class="desc">View event info and pick seats from the interactive seat map</div></div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-line"><div class="flow-dot"></div><div class="flow-connector"></div></div>
+                    <div class="flow-box"><div class="page">checkout.html — Checkout & Payment</div><div class="desc">Review booking summary, choose payment method, complete purchase</div></div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-line"><div class="flow-dot"></div><div class="flow-connector"></div></div>
+                    <div class="flow-box"><div class="page">ticket.html — View Ticket</div><div class="desc">See your ticket with event details and scan the generated QR code</div></div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-line"><div class="flow-dot"></div><div class="flow-connector"></div></div>
+                    <div class="flow-box"><div class="page">booking.html — My Bookings</div><div class="desc">Manage all bookings — cancel, restore, delete, or view ticket</div></div>
+                </div>
+                <div class="flow-item">
+                    <div class="flow-line"><div class="flow-dot"></div></div>
+                    <div class="flow-box"><div class="page">admin_dashboard.html — Admin Panel</div><div class="desc">Manage events and transactions; view live revenue and occupancy stats</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT STRUCTURE -->
+        <section class="section" id="structure">
+            <div class="section-header">
+                <div class="section-icon">🗂️</div>
+                <h2>Project Structure</h2>
+            </div>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>FILE TREE</span>
+                </div>
+                <pre>ITEW_2_MIDTERM_PROJECT_Fixed/
+│
+├── index.html              ← Landing / home page
+├── index.js
+│
+├── AUTHENTICATION/
+│   ├── login.html          ← Login page
+│   ├── login.js
+│   ├── signup.html         ← Registration page
+│   ├── signup.js
+│   ├── forgot-password.html ← 3-step password reset
+│   ├── forgot-password.js
+│   └── authentication.css
+│
+├── ADMIN_DASHBOARD/
+│   ├── admin_dashboard.html ← Admin panel
+│   ├── admin_dashboard.js
+│   └── admin_dashboard.css
+│
+├── USER_DASHBOARD/
+│   ├── user_dashboard.html ← Customer event listing
+│   ├── user_dashboard.js
+│   └── user_dashboard.css
+│
+├── EVENT_DETAILS/
+│   ├── event_details.html  ← Seat map + event info
+│   ├── event_details.js
+│   └── event_details.css
+│
+├── MY_BOOKINGS/
+│   ├── booking.html        ← Booking history
+│   ├── booking.js
+│   ├── checkout.html       ← Checkout + payment modal
+│   ├── checkout.js
+│   └── *.css
+│
+├── TICKETS/
+│   ├── ticket.html         ← Ticket viewer + QR code
+│   ├── ticket.js
+│   └── ticketstyle.css
+│
+└── IMAGES/
+    └── (logo, backgrounds, icons)</pre>
+            </div>
+        </section>
+
+        <!-- NOTES -->
+        <section class="section" id="notes">
+            <div class="section-header">
+                <div class="section-icon">📝</div>
+                <h2>Notes</h2>
+            </div>
+            <div class="note"><span class="note-icon">⚠️</span>All data resets when the browser's localStorage is cleared. There is no permanent database.</div>
+            <div class="note"><span class="note-icon">🪑</span>The seat map reads real booked seat data — seats purchased by any user are marked unavailable for everyone else.</div>
+            <div class="note"><span class="note-icon">📅</span>Default events load automatically when a user first logs in, so events are visible without needing the admin to add them first.</div>
+            <div class="note"><span class="note-icon">🌐</span>Works best on Google Chrome. No internet connection required after the page loads (except for Google Fonts).</div>
+        </section>
+
+        <!-- GROUP MEMBERS -->
+        <section class="section" id="group">
+            <div class="section-header">
+                <div class="section-icon">👥</div>
+                <h2>Group Members</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Name</th><th>Role</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Balbero, Lee Raffy Angelo O.</td><td>Back-end and GitHub Repository Maintainer</td></tr>
+                    <tr><td>Balean, Pauleen C.</td><td>Front-end and Demonstrator</td></tr>
+                    <tr><td>Baltazar, Ralph Christian J.</td><td>Back-end and Video Editor</td></tr>
+                    <tr><td>Batacan, Elaine Grace S.</td><td>Back-end</td></tr>
+                    <tr><td>Bautista, Lawrence Jr. C.</td><td>Leader, Front-end, and Documentation</td></tr>
+                    <tr><td>Beato, Jerome Ivan P.</td><td>Front-end</td></tr>
+                    <tr><td>Buquid, Abraham Kristoffer M.</td><td>Back-end and Demonstrator</td></tr>
+                    <tr><td>Capoy, Andrei C.</td><td>Back-end and GitHub Repository Maintainer</td></tr>
+                    <tr><td>Cosino, Mikaela Princess I.</td><td>Front-end and Back-end Checker</td></tr>
+                    <tr><td>Salvador, Jerick S.</td><td>Front-end and Back-end Checker</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p><strong>EventBook</strong> — ITEW 2 Midterm Project</p>
+    <p>Copyright &copy; 2026 Group 1. All rights reserved.</p>
+</footer>
+
+<!-- TOC Active Highlight -->
+<script>
+    const sections = document.querySelectorAll('.section');
+    const tocLinks = document.querySelectorAll('.toc a');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                tocLinks.forEach(a => a.classList.remove('active'));
+                const active = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+                if (active) active.classList.add('active');
+            }
+        });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
