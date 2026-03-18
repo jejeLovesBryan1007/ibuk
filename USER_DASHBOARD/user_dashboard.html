@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta and page title -->
+    <meta charset="UTF-8">
+    <title>EventBook Dashboard</title>
+
+    <!-- Dashboard page styles -->
+    <link rel="stylesheet" href="user_dashboard.css">
+</head>
+<body>
+ 
+    <!-- Navbar / Navigation bar -->
+    <nav class="navbar">
+
+        <!-- Logo section -->
+        <div class="logo">
+            <img src="../IMAGES/logo.png" alt="EventBook Logo">
+            <span class="logo-text">EventBook</span>
+        </div>
+ 
+        <!-- Navigation links -->
+        <ul class="nav-links">
+            <li><a href="../USER_DASHBOARD/user_dashboard.html">Events</a></li>
+            <li><a href="../TICKETS/ticket.html">Ticket</a></li>
+            <li><a href="../MY_BOOKINGS/booking.html">My Bookings</a></li>
+            <li><a href="#" onclick="logoutUser()">Log Out</a></li>
+        </ul>
+    </nav>
+ 
+    <!-- Hero / Main dashboard section -->
+    <section class="hero">
+
+        <!-- Background overlay -->
+        <div class="overlay"></div>
+
+        <!-- Hero content -->
+        <div class="hero-content">
+
+            <!-- Welcome message -->
+            <p class="welcome-text">Welcome Customer!</p>
+
+            <!-- Page title -->
+            <h1>DASHBOARD</h1>
+ 
+            <!-- Events section title -->
+            <h2>Available Events</h2>
+
+            <!-- Events description -->
+            <p class="description">
+                Discover events that inspire, entertain, and connect.
+                From grand performances to intimate gatherings,
+                your next unforgettable experience starts here.
+            </p>
+
+            <!-- Dynamic event cards container -->
+            <div class="card-container" id="cardContainer"></div>
+        </div>
+    </section>
+
+    <!-- Footer section -->
+    <footer>
+      <p>EventBook</p>
+      <span>Copyright © 2026 Group 1.</span>
+    </footer>
+ 
+    <!-- External dashboard script -->
+    <script src="user_dashboard.js"></script>
+</body>
+</html>

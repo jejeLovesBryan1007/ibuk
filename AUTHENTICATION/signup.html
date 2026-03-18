@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta and page title -->
+    <meta charset="UTF-8">
+    <title>EventBook - Register</title>
+
+    <!-- Authentication page styles -->
+    <link rel="stylesheet" href="authentication.css">
+</head>
+<body>
+
+<!-- Navbar / Header with centered logo -->
+<header class="navbar center-logo">
+    <div class="logo">
+        <img src="../IMAGES/eventbook_logo.png" alt="EventBook Logo">
+        <h1>EventBook</h1>
+    </div>
+</header>
+
+<!-- Main registration section -->
+<main class="login-hero">
+    <section class="login-container">
+        <h2>Create Your Account</h2>
+
+        <!-- Signup form -->
+        <form id="signupForm">
+
+            <!-- Full name input -->
+            <div class="form-group">
+                <input type="text" id="fullNameInput" placeholder="Full Name" required>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-group">
+                <input type="email" id="emailInput" placeholder="Email" required>
+            </div>
+
+            <!-- Password input with toggle -->
+            <div class="form-group password-wrapper">
+                <input type="password" id="passwordInput" placeholder="Password" required>
+                <span class="toggle-password" onclick="togglePassword('passwordInput', this)">👁</span>
+            </div>
+
+            <!-- Confirm password input with toggle -->
+            <div class="form-group password-wrapper">
+                <input type="password" id="confirmPasswordInput" placeholder="Confirm Password" required>
+                <span class="toggle-password" onclick="togglePassword('confirmPasswordInput', this)">👁</span>
+            </div>
+
+            <!-- Register button -->
+            <button type="submit" class="btn primary">Register</button>
+        </form>
+
+        <!-- Back to home button -->
+        <a href="#" class="btn secondary" style="display:block; margin-top:10px; text-align:center;" onclick="goBackToHome()">← Back to Home</a>
+
+        <!-- Login redirect -->
+        <p class="signup-text">
+            Already have an account? <a href="login.html">Sign In</a>
+        </p>
+    </section>
+</main>
+
+<!-- Footer section -->
+<footer>
+    <p><strong>EventBook</strong></p>
+    <p>Copyright © 2026 Group 1.</p>
+</footer>
+
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- External signup script -->
+<script src="signup.js"></script>
+
+<script>
+    // Toggles password visibility for input fields
+    function togglePassword(inputId, icon) {
+        const input = document.getElementById(inputId);
+        if (input.type === "password") {
+            input.type = "text";
+            icon.textContent = "🙈";
+        } else {
+            input.type = "password";
+            icon.textContent = "👁";
+        }
+    }
+
+    // Redirects user back to home and clears session data
+    function goBackToHome() {
+        localStorage.removeItem("loggedInUser");
+        localStorage.removeItem("currentUserRole");
+        window.location.href = "../index.html";
+    }
+</script>
+
+</body>
+</html>

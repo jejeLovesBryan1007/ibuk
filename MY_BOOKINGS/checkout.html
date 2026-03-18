@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Meta and page title -->
+    <meta charset="UTF-8" />
+    <title>EventBook | Checkout</title>
+
+    <!-- Google font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Checkout page styles -->
+    <link rel="stylesheet" href="checkoutstyle.css" />
+
+  </head>
+
+  <body>
+    <!-- Navbar / Header -->
+    <header class="navbar">
+      <!-- Logo section -->
+      <div class="logo">
+        <img src="../IMAGES/eventbook_logo.png" alt="websitelogo" />EventBook
+      </div>
+
+      <!-- Navigation links -->
+      <nav>
+        <a href="../EVENT_DETAILS/event_details.html">Events</a>
+        <a href="booking.html">My Bookings</a>
+      </nav>
+    </header>
+
+    <!-- Main checkout section -->
+    <main class="page">
+      <section class="checkout-card">
+
+        <!-- Checkout header -->
+        <div class="checkout-header">Checkout</div>
+
+        <div class="checkout-body">
+          <h2>Booking Summary</h2>
+          <hr />
+
+          <!-- User name display -->
+          <p class="name">Your Name</p>
+
+          <!-- Booking details -->
+          <div class="details">
+            <p id="eventName"><strong>Event:</strong> Event name</p>
+            <p id="eventDate"><strong>Date:</strong> Event Date</p>
+            <p id="eventTime"><strong>Time:</strong> Event Time</p>
+            <p id="eventVenue"><strong>Venue:</strong> Event Venue</p>
+            <p id="bookedSeat"><strong>Booked seat:</strong> Booked seat</p>
+            <p id="eventPrice"><strong>Price:</strong> Event price</p>
+            <p id="quantity"><strong>Quantity:</strong> Quantity</p>
+            <p id="eventTotal" class="total">
+              <strong>Total:</strong> Price × Quantity
+            </p>
+          </div>
+
+          <!-- Action buttons -->
+          <div class="buttons">
+            <button class="confirm" onclick="openPayment()">Confirm</button>
+            <button class="cancel">Cancel Booking</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+      <p>EventBook</p>
+      <span>Copyright © 2026 Group 1.</span>
+    </footer>
+
+    <!-- Payment modal -->
+    <div class="modal-overlay" id="paymentModal">
+      <div class="payment-modal">
+
+        <!-- Payment modal header -->
+        <div class="payment-header">Payment</div>
+
+        <div class="payment-body">
+
+          <!-- Payment method selection -->
+          <label>Payment Method:</label>
+          <select id="paymentMethod">
+            <option value="selectMethod">Select Method</option>
+            <option value="gcash">GCash</option>
+            <option value="payMaya">PayMaya</option>
+            <option value="bankTransfer">Bank Transfer</option>
+          </select>
+
+          <!-- Account number input -->
+          <label for="accountNumber">Account number</label>
+          <input type="number" id="accountNumber" /> <br />
+          <br />
+
+          <!-- Account name input -->
+          <label for="accountName">Account name</label>
+          <input type="text" id="accountName" /> <br />
+          <br />
+
+          <!-- Payment action buttons -->
+          <div class="payment-buttons">
+            <button class="pay-btn" onclick="completePayment()">Pay</button>
+            <button class="cancel-btn" onclick="closePayment()">
+              Cancel Booking
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success modal -->
+    <div class="modal-overlay" id="successModal">
+      <div class="payment-modal">
+
+        <!-- Success header -->
+        <div class="payment-header" style="background: #39b54a">
+          Payment Successful!
+        </div>
+
+        <div class="payment-body">
+          <h2>Checkout Summary</h2>
+          <hr />
+
+          <!-- User name display -->
+          <p class="name">Your Name</p>
+
+          <!-- Summary details -->
+          <div class="details">
+            <p><strong>Event:</strong> Event name</p>
+            <p><strong>Date:</strong> Event Date</p>
+            <p><strong>Time:</strong> Event Time</p>
+            <p><strong>Venue:</strong> Event Venue</p>
+            <p><strong>Booked seat:</strong> Booked seat</p>
+            <p><strong>Price:</strong> Event price</p>
+            <p><strong>Quantity:</strong> Quantity</p>
+            <p class="total"><strong>Total:</strong> Price × Quantity</p>
+            <p><strong>Payment Method:</strong> GCash</p>
+          </div>
+
+          <!-- Success action buttons -->
+          <div class="payment-buttons">
+            <button class="pay-btn" onclick="goToTicket()">View Ticket</button>
+            <button class="cancel-btn" onclick="closeSuccess()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery library (moved to bottom for consistency with other pages) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- External checkout script -->
+    <script src="checkout.js"></script>
+  </body>
+</html>

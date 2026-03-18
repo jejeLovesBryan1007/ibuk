@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta and page title -->
+    <meta charset="UTF-8">
+    <title>EventBook - Login</title>
+
+    <!-- Authentication page styles -->
+    <link rel="stylesheet" href="authentication.css">
+</head>
+<body>
+    <!-- Navbar / Header with centered logo -->
+    <header class="navbar center-logo">
+        <div class="logo">
+            <img src="../IMAGES/eventbook_logo.png" alt="EventBook Logo">
+            <h1>EventBook</h1>
+        </div>
+    </header>
+ 
+    <!-- Main login section -->
+    <main class="login-hero">
+        <section class="login-container">
+            <h2>Log In Your Account</h2>
+
+            <!-- Login form -->
+            <form id="loginForm">
+                
+                <!-- Email input -->
+                <div class="form-group">
+                    <input type="email" id="emailInput" placeholder="Email" required>
+                </div>
+
+                <!-- Password input with toggle visibility -->
+                <div class="form-group password-wrapper">
+                    <input type="password" id="passwordInput" placeholder="Password" required>
+                    <span class="toggle-password" onclick="togglePassword('passwordInput', this)">👁</span>
+                </div>
+
+                <!-- Account type selection -->
+                <div class="form-group">
+                    <select id="accountTypeInput" required>
+                        <option value="" disabled selected>Account Type</option>
+                        <option value="customer">Customer</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <!-- Form options (remember + forgot password) -->
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox" id="rememberAccount"> Remember my account
+                    </label>
+                    <!-- FIX: now links to forgot-password.html instead of # -->
+                    <a href="forgot-password.html">Forgot password?</a>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn primary">Log In</button>
+
+            </form>
+
+            <!-- Signup redirect -->
+            <p class="signup-text">
+                Doesn't have an account? <a href="signup.html">Sign Up</a>
+            </p>
+        </section>
+    </main>
+ 
+    <!-- Footer section -->
+    <footer>
+        <p><strong>EventBook</strong></p>
+        <p>Copyright &copy; 2026 Group 1.</p>
+    </footer>
+ 
+    <!-- External login script -->
+    <script src="login.js"></script>
+
+    <!-- Password toggle script -->
+    <script>
+        function togglePassword(inputId, icon) {
+            const input = document.getElementById(inputId);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.textContent = "🙈";
+            } else {
+                input.type = "password";
+                icon.textContent = "👁";
+            }
+        }
+    </script>
+</body>
+</html>

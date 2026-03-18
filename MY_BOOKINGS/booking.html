@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta configuration and page title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventBook - My Bookings</title>
+
+    <!-- Booking page styles -->
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+
+    <!-- Navbar / Navigation bar -->
+    <nav class="navbar">
+
+        <!-- Logo section -->
+        <div class="logo">
+            <img src="../IMAGES/logo.png" alt="EventBook Logo">
+            <span class="logo-text">EventBook</span>
+        </div>
+ 
+        <!-- Navigation links -->
+        <ul class="nav-links">
+            <li><a href="../USER_DASHBOARD/user_dashboard.html">Events</a></li>
+            <li><a href="../TICKETS/ticket.html">Ticket</a></li>
+            <li><a href="../MY_BOOKINGS/booking.html">My Bookings</a></li>
+            <li><a href="#" onclick="logoutUser()">Log Out</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main bookings container (dynamic content) -->
+    <main class="bookings-wrapper">
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+      <p>EventBook</p>
+      <span>Copyright © 2026 Group 1.</span>
+    </footer>
+    
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- External booking script -->
+    <script src="booking.js"></script>
+</body>
+</html>

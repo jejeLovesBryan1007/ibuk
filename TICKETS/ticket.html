@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Meta and page title -->
+    <meta charset="UTF-8" />
+    <title>EventBook | Ticket</title>
+
+    <!-- Google font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Ticket page styles -->
+    <link rel="stylesheet" href="ticketstyle.css" />
+  </head>
+
+  <body>
+    <!-- Navbar / Header -->
+    <nav class="navbar">
+
+        <!-- Logo section -->
+        <div class="logo">
+            <img src="../IMAGES/logo.png" alt="EventBook Logo">
+            <span class="logo-text">EventBook</span>
+        </div>
+ 
+        <!-- Navigation links -->
+        <ul class="nav-links">
+            <li><a href="../USER_DASHBOARD/user_dashboard.html">Events</a></li>
+            <li><a href="../TICKETS/ticket.html">Ticket</a></li>
+            <li><a href="../MY_BOOKINGS/booking.html">My Bookings</a></li>
+            <li><a href="#" onclick="logoutUser()">Log Out</a></li>
+        </ul>
+    </nav>
+
+    <!-- Ticket navigation controls -->
+    <div id="ticketNavigation" class="ticket-navigation" style="display: none;">
+      <button id="ticketPrev" class="ticket-nav-btn">❮</button>
+      <span id="ticketCounter" class="ticket-counter">1 / 1</span>
+      <button id="ticketNext" class="ticket-nav-btn">❯</button>
+    </div>
+
+    <!-- Main ticket container -->
+    <div class="ticket-container">
+
+      <!-- Ticket image section -->
+      <div class="ticket-image">
+        <img src="../IMAGES/party_bg.png" alt="Event Image" />
+      </div>
+
+      <!-- Ticket main details -->
+      <div class="ticket-details">
+        <h1 id="MainEventName">Loading...</h1>
+
+        <!-- Ticket tags (date, venue, status) -->
+        <div class="ticket-tags">
+          <span id="MainEventDate">Date</span>
+          <span id="MainEventVenue">Venue</span>
+          <span id="MainStatus">BOOKED</span>
+        </div>
+      </div>
+
+      <!-- Ticket side information -->
+      <div class="ticket-side">
+        <div class="ticket-side-content">
+          <div id="EventName" style="font-weight: bold;">Event Name</div>
+          <div id="EventTime">Venue</div>
+          <div id="EventDate">Date</div>
+          <div id="EventPrice">Order ID</div>
+          <div id="EventSeat" style="color: #ff4d4d; font-weight: bold;">Seats</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ticket action buttons -->
+    <div class="ticket-actions">
+      <button class="qrCode">QR Code</button>
+      <button class="back" onclick="goBack()">Go Back</button>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+      <p>EventBook</p>
+      <span>Copyright © 2026 Group 1.</span>
+    </footer>
+
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- QR code library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <!-- External ticket script -->
+    <script src="ticket.js"></script>
+
+    <!-- QR code modal -->
+    <div id="qrModal" class="qr-modal">
+      <div class="qr-modal-content">
+        
+        <!-- QR modal title -->
+        <h2 class="qr-title">Your Ticket QR</h2>
+
+        <!-- QR code display -->
+        <div id="qrcode" class="qr-box"></div>
+
+        <!-- QR instructions -->
+        <p class="qr-subtext">Scan this at the event entrance</p>
+
+        <!-- Close QR modal button -->
+        <button id="closeQr" class="qr-close-btn">Close</button>
+
+      </div>
+    </div>
+  </body>
+</html>

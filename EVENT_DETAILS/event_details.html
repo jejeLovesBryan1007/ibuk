@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta and page title -->
+    <meta charset="UTF-8">
+    <title>Event Details - EventBook</title>
+
+    <!-- Event details page styles -->
+    <link rel="stylesheet" href="event_details.css">
+</head>
+<body>
+ 
+<!-- Navbar / Navigation bar -->
+<nav class="navbar">
+        <!-- Logo section -->
+        <div class="logo">
+            <img src="../IMAGES/logo.png" alt="EventBook Logo">
+            <span class="logo-text">EventBook</span>
+        </div>
+ 
+        <!-- Navigation links -->
+        <ul class="nav-links">
+            <li><a href="../USER_DASHBOARD/user_dashboard.html">Events</a></li>
+            <li><a href="../TICKETS/ticket.html">Ticket</a></li>
+            <li><a href="../MY_BOOKINGS/booking.html">My Bookings</a></li>
+            <li><a href="#" onclick="logoutUser()">Log Out</a></li>
+        </ul>
+    </nav>
+
+<!-- Main event details section -->
+<section class="details-section">
+
+    <!-- Event information card -->
+    <div class="info-card">
+        <div class="card-header"></div>
+        <div class="card-body"></div>
+    </div>
+
+    <!-- Seat selection section -->
+    <div class="seat-card">
+        <div class="card-header">Select Your Seats:</div>
+
+        <div class="seat-container">
+            <!-- Dynamic seat grid -->
+            <div class="seats" id="seatContainer"></div>
+
+            <!-- Seat legend -->
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="seat available"></div>
+                    <span>Available</span>
+                </div>
+
+                <div class="legend-item">
+                    <div class="seat booked"></div>
+                    <span>Booked</span>
+                </div>
+
+                <div class="legend-item">
+                    <div class="seat selected"></div>
+                    <span>Selected</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Total price display -->
+    <div class="price-box" id="priceBox">
+        Total Price: ₱0.00
+    </div>
+
+    <!-- Checkout button section -->
+    <div class="checkout-container">
+        <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    </div>
+
+</section>
+
+<!-- Footer section -->
+<footer>
+    <p>EventBook</p>
+    <span>Copyright © 2026 Group 1.</span>
+</footer>
+
+<!-- External script for event details logic -->
+<script src="event_details.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>EventBook Dashboard</title>
+    <link rel="stylesheet" href="admin_dashboard.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="../IMAGES/eventbook_logo.png">
+            <h2>EventBook</h2>
+        </div>
+
+        <button id="dashboardBtn" class="nav active">⬛ &nbsp; Dashboard</button>
+        <button id="manage-eventsBtn" class="nav">🗓 &nbsp; Manage Events</button>
+        <button id="manage-transactionsBtn" class="nav">💳 &nbsp; Transactions</button>
+        <button id="logoutBtn" class="nav">⏻ &nbsp; Log Out</button>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+        <!-- DASHBOARD TAB -->
+        <div id="section-dashboard">
+            <p class="welcome">Welcome Admin!</p>
+            <h1>Dashboard</h1>
+            
+            <!-- KEY METRICS -->
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-title">🗓 &nbsp; Total Events</div>
+                    <div id="totalEvents" class="stat-body">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-title">🎟 &nbsp; Total Bookings</div>
+                    <div id="totalBookings" class="stat-body">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-title">💰 &nbsp; Total Revenue</div>
+                    <div id="totalRevenue" class="stat-body">0</div>
+                </div>
+            </div>
+
+            <!-- ADDITIONAL INSIGHTS -->
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-title">👥 &nbsp; Available Seats</div>
+                    <div id="totalAvailableSeats" class="stat-body">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-title">✓ &nbsp; Booked Seats</div>
+                    <div id="totalBookedSeats" class="stat-body">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-title">📊 &nbsp; Occupancy Rate</div>
+                    <div id="occupancyRate" class="stat-body">0%</div>
+                </div>
+            </div>
+
+            <!-- EVENT BREAKDOWN -->
+            <div class="section-title">Event Breakdown</div>
+            <div class="analytics-box">
+                <table class="analytics-table">
+                    <thead>
+                        <tr>
+                            <th>Event Name</th>
+                            <th>Date</th>
+                            <th>Total Seats</th>
+                            <th>Booked</th>
+                            <th>Available</th>
+                            <th>Occupancy</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventBreakdownBody">
+                        <tr><td colspan="6" style="text-align: center;">Loading...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- RECENT ACTIVITY -->
+            <div class="section-title">Recent Transactions</div>
+            <div class="analytics-box">
+                <div id="recentActivityContainer" class="recent-activity">
+                    <p style="text-align: center; color: rgba(255, 255, 255, 0.6);">No recent transactions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MANAGE EVENTS TAB -->
+        <div id="section-manage-events">
+            <p class="welcome">Welcome Admin!</p>
+            <h1>Manage Events</h1>
+
+            <div class="section-title">Register New Event</div>
+
+            <div class="form-box">
+                <form>
+                    <div class="form-row">
+                        <label>Event Name:</label>
+                        <input id="txtEventName" type="text" placeholder="Enter event name">
+                    </div>
+                    <div class="form-row">
+                        <label>Date:</label>
+                        <input id="txtDate" type="text" placeholder="e.g. 2026-04-20">
+                    </div>
+                    <div class="form-row">
+                        <label>Time:</label>
+                        <input id="txtTime" type="text" placeholder="e.g. 7:00 PM">
+                    </div>
+                    <div class="form-row">
+                        <label>Venue:</label>
+                        <input id="txtVenue" type="text" placeholder="Enter venue">
+                    </div>
+                    <div class="form-row">
+                        <label>Price:</label>
+                        <input id="txtPrice" type="text" placeholder="e.g. 350.00">
+                    </div>
+                    <div class="form-row">
+                        <label>Total Seats:</label>
+                        <input id="txtTotalSeats" type="text" placeholder="e.g. 100">
+                    </div>
+                    <div class="btn-container">
+                        <button id="registerBtn" class="register-btn">Register</button>
+                        <button id="updateBtn" class="register-btn update-btn">Update</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="section-title">List of Events</div>
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Venue</th>
+                            <th>Price</th>
+                            <th>Seats</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- MANAGE TRANSACTIONS TAB -->
+        <div id="section-manage-transactions">
+            <p class="welcome">Welcome Admin!</p>
+            <h1>Transactions</h1>
+
+            <div class="section-title">List of Transactions</div>
+            <div class="table-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Venue</th>
+                            <th>Seat</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="admin_dashboard.js"></script>
+</body>
+</html>
