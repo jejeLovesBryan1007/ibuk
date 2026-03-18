@@ -1,102 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <!-- Meta and page title -->
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>EventBook - Home</title>
 
     <!-- Authentication styles (used for homepage theme) -->
-    <link rel="stylesheet" href="AUTHENTICATION/authentication.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="AUTHENTICATION/authentication.css" />
+  </head>
+  <body>
     <!-- Navbar / Header -->
     <header class="navbar">
+      <!-- Logo section -->
+      <div class="logo">
+        <img src="IMAGES/eventbook_logo.png" alt="EventBook Logo" />
+        <h1>EventBook</h1>
+      </div>
 
-        <!-- Logo section -->
-        <div class="logo">
-            <img src="IMAGES/eventbook_logo.png" alt="EventBook Logo">
-            <h1>EventBook</h1>
-        </div>
- 
-        <!-- Navigation menu -->
-        <nav>
-            <ul>
-                <li><a href="#" onclick="redirectToLogin(event)">Events</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contacts</a></li>
-            </ul>
-        </nav>
+      <!-- Navigation menu -->
+      <nav>
+        <ul>
+          <li><a href="#" onclick="redirectToLogin(event)">Events</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Contacts</a></li>
+        </ul>
+      </nav>
     </header>
- 
+
     <!-- Hero / Main section -->
     <main class="hero">
+      <!-- Hero content -->
+      <section class="hero-content">
+        <h2>Event<span>Book</span></h2>
 
-        <!-- Hero content -->
-        <section class="hero-content">
-            <h2>Event<span>Book</span></h2>
+        <!-- Tagline -->
+        <p class="tagline">"Your All-Access Pass to Unforgettable."</p>
 
-            <!-- Tagline -->
-            <p class="tagline">"Your All-Access Pass to Unforgettable."</p>
+        <!-- Description -->
+        <p class="description">
+          Welcome to the premier destination for seamless event booking and seat
+          selection.
+        </p>
 
-            <!-- Description -->
-            <p class="description">
-                Welcome to the premier destination for seamless event booking and seat selection.
-            </p>
- 
-            <!-- Call-to-action buttons -->
-            <!-- FIX: Sign Up button now calls redirectToRegister() instead of bare href -->
-            <div class="buttons">
-                <a href="#" onclick="redirectToRegister(event)" class="btn primary">Sign Up</a>
-                <a href="AUTHENTICATION/login.html" class="btn secondary">Sign In</a>
-            </div>
-        </section>
- 
-        <!-- Features section -->
-        <section class="features">
-            <h3>Why Choose EventBook?</h3>
+        <!-- Call-to-action buttons -->
+        <!-- FIX: Sign Up button now calls redirectToRegister() instead of bare href -->
+        <div class="buttons">
+          <a href="#" onclick="redirectToRegister(event)" class="btn primary"
+            >Sign Up</a
+          >
+          <a href="AUTHENTICATION/login.html" class="btn secondary">Sign In</a>
+        </div>
+      </section>
 
-            <!-- Feature cards -->
-            <div class="feature-cards">
+      <!-- Features section -->
+      <section class="features">
+        <h3>Why Choose EventBook?</h3>
 
-                <!-- Feature: Easy booking -->
-                <article class="card">
-                    <img src="IMAGES/lightning.png" alt="Easy Booking Icon">
-                    <h4>Easy Event Booking</h4>
-                    <p>Find and book your favorite events effortlessly.</p>
-                </article>
+        <!-- Feature cards -->
+        <div class="feature-cards">
+          <!-- Feature: Easy booking -->
+          <article class="card">
+            <img src="IMAGES/lightning.png" alt="Easy Booking Icon" />
+            <h4>Easy Event Booking</h4>
+            <p>Find and book your favorite events effortlessly.</p>
+          </article>
 
-                <!-- Feature: Seat selection -->
-                <article class="card">
-                    <img src="IMAGES/seat.png" alt="Seat Selection Icon">
-                    <h4>Smart Seat Selection</h4>
-                    <p>Choose your perfect seat with our interactive seat map.</p>
-                </article>
+          <!-- Feature: Seat selection -->
+          <article class="card">
+            <img src="IMAGES/seat.png" alt="Seat Selection Icon" />
+            <h4>Smart Seat Selection</h4>
+            <p>Choose your perfect seat with our interactive seat map.</p>
+          </article>
 
-                <!-- Feature: Fast checkout -->
-                <article class="card">
-                    <img src="IMAGES/lightning.png" alt="Fast Checkout Icon">
-                    <h4>Fast Checkout</h4>
-                    <p>Quick and simple checkout process.</p>
-                </article>
+          <!-- Feature: Fast checkout -->
+          <article class="card">
+            <img src="IMAGES/lightning.png" alt="Fast Checkout Icon" />
+            <h4>Fast Checkout</h4>
+            <p>Quick and simple checkout process.</p>
+          </article>
 
-                <!-- Feature: Secure payments -->
-                <article class="card">
-                    <img src="IMAGES/shield.png" alt="Secure Payment Icon">
-                    <h4>Secure Payments</h4>
-                    <p>Safe and secure payment options.</p>
-                </article>
-            </div>
-        </section>
+          <!-- Feature: Secure payments -->
+          <article class="card">
+            <img src="IMAGES/shield.png" alt="Secure Payment Icon" />
+            <h4>Secure Payments</h4>
+            <p>Safe and secure payment options.</p>
+          </article>
+        </div>
+      </section>
     </main>
- 
+
     <!-- Footer section -->
     <footer>
-        <p><strong>EventBook</strong></p>
-        <p>Copyright &copy; 2026 Group 1.</p>
+      <p><strong>EventBook</strong></p>
+      <p>Copyright &copy; 2026 Group 1.</p>
     </footer>
- 
+
     <!-- External homepage script -->
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
