@@ -9,6 +9,7 @@ A web-based event booking system that allows customers to browse events, select 
 ## 🚀 Features
 
 ### Customer
+
 - Register and log in as a customer
 - Browse available events on the dashboard
 - Select seats interactively from a seat map
@@ -18,6 +19,7 @@ A web-based event booking system that allows customers to browse events, select 
 - Reset forgotten password
 
 ### Admin
+
 - Log in as an admin
 - Register, edit, and delete events
 - View all transactions
@@ -78,14 +80,14 @@ ITEW_2_MIDTERM_PROJECT_Fixed/
 
 ## 🛠️ Tech Stack
 
-| Technology | Usage |
-|---|---|
-| HTML5 | Page structure |
-| CSS3 | Styling and layout |
-| JavaScript (Vanilla) | Logic and interactivity |
-| jQuery 3.7.1 | DOM manipulation |
-| localStorage | Data persistence (users, events, bookings) |
-| QRCode.js | QR code generation for tickets |
+| Technology           | Usage                                      |
+| -------------------- | ------------------------------------------ |
+| HTML5                | Page structure                             |
+| CSS3                 | Styling and layout                         |
+| JavaScript (Vanilla) | Logic and interactivity                    |
+| jQuery 3.7.1         | DOM manipulation                           |
+| localStorage         | Data persistence (users, events, bookings) |
+| QRCode.js            | QR code generation for tickets             |
 
 > No backend or database — all data is stored in the browser's `localStorage`.
 
@@ -93,10 +95,10 @@ ITEW_2_MIDTERM_PROJECT_Fixed/
 
 ## 🔐 Default Accounts
 
-| Role | Email | Password |
-|---|---|---|
-| Customer | user@example.com | 12345678 |
-| Admin | admin@example.com | admin123 |
+| Role     | Email             | Password |
+| -------- | ----------------- | -------- |
+| Customer | user@example.com  | 12345678 |
+| Admin    | admin@example.com | admin123 |
 
 You can also register a new customer account via the Sign Up page.
 
@@ -126,7 +128,7 @@ cd your-repo-name
 
 1. Open `index.html` and click **Sign Up**
 2. Fill in the registration form using these credentials:
-   - **Full Name:** `User Example` *(or any first and last name)*
+   - **Full Name:** `User Example` _(or any first and last name)_
    - **Email:** `user@example.com`
    - **Password:** `12345678`
    - **Confirm Password:** `12345678`
@@ -172,9 +174,18 @@ Home (index.html)
 
 ## 👥 Group Members
 
-| Name | Role |
-|---|---|
-| *(add your names here)* | *(add roles here)* |
+| Name                          | Role                                      |
+| ----------------------------- | ----------------------------------------- |
+| Balbero, Lee Raffy Angelo O.  | Back-end and GitHub Repository Maintainer |
+| Balean, Pauleen C.            | Front-end and Demonstrator                |
+| Baltazar, Ralph Christian J.  | Back-end and Video Editor                 |
+| Batacan, Elaine Grace S.      | Back-end                                  |
+| Bautista, Lawrence Jr. C.     | Leader, Front-end, and Documentation      |
+| Beato, Jerome Ivan P.         | Front-end                                 |
+| Buquid, Abraham Kristoffer M. | Back-end and Demonstrator                 |
+| Capoy, Andrei C.              | Back-end and GitHub Repository Maintainer |
+| Cosino, Mikaela Princess I.   | Front-end and Back-end Checker            |
+| Salvador, Jerick S.           | Front-end and Back-end Checker            |
 
 ---
 
@@ -186,4 +197,4 @@ Home (index.html)
 
 ---
 
-*Copyright © 2026 Group 1*
+_Copyright © 2026 Group 1_
