@@ -174,7 +174,16 @@ Home (index.html)
 
 | Name | Role |
 |---|---|
-| *(add your names here)* | *(add roles here)* |
+| Balbero, Lee Raffy Angelo O.  | Back-end and GitHub Repository Maintainer |
+| Balean, Pauleen C.            | Front-end and Demonstrator                |
+| Baltazar, Ralph Christian J.  | Back-end and Video Editor                 |
+| Batacan, Elaine Grace S.      | Back-end                                  |
+| Bautista, Lawrence Jr. C.     | Leader, Front-end, and Documentation      |
+| Beato, Jerome Ivan P.         | Front-end                                 |
+| Buquid, Abraham Kristoffer M. | Back-end and Demonstrator                 |
+| Capoy, Andrei C.              | Back-end and GitHub Repository Maintainer |
+| Cosino, Mikaela Princess I.   | Front-end and Back-end Checker            |
+| Salvador, Jerick S.           | Front-end and Back-end Checker            |
 
 ---
 
